@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * 代码生成工具类
  * @author Hexl
  */
 @SuppressWarnings("all")
