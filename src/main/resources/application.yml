@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    # ¡¨Ω”≥ÿ≈‰÷√
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 10
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+      filters:
+        stat,wall
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+
+mybatis-plus:
+  mapper-locations: classpath*:com/example/demo/sys/mapper/xml/**Mapper.xml
+  type-aliases-package: com.example.demo.sys.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
